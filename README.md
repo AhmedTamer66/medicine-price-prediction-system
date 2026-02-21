@@ -117,8 +117,9 @@ User → Frontend Dashboard → Backend API → ML Model → Database
 
 ---
 
-## 📁 Project Structure (Planned)
+## 📁 Project Structure
 
+```text
 medicine-price-prediction-system/
 │
 ├── data/
@@ -140,6 +141,7 @@ medicine-price-prediction-system/
 │   └── reports/      # Documentation and reports
 │
 └── README.md         # Project documentation
+```
 ---
 
 ## 🧪 Testing
