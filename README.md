@@ -122,25 +122,24 @@ User → Frontend Dashboard → Backend API → ML Model → Database
 medicine-price-prediction-system/
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── raw/          # Unprocessed datasets
+│   └── processed/    # Cleaned and prepared datasets
 │
 ├── ml/
-│   ├── train.py
-│   └── model.pkl
+│   ├── train.py      # Training script for ML models
+│   └── model.pkl     # Saved trained model
 │
 ├── backend/
-│   └── app.py
+│   └── app.py        # Backend API (Flask/FastAPI)
 │
 ├── frontend/
-│   └── app.py
+│   └── app.py        # Frontend dashboard (Streamlit/HTML+JS)
 │
 ├── docs/
-│   ├── diagrams/
-│   └── reports/
+│   ├── diagrams/     # UML, ER, DFD diagrams
+│   └── reports/      # Documentation and reports
 │
-└── README.md
-
+└── README.md         # Project documentation
 ---
 
 ## 🧪 Testing
