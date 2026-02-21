@@ -1,137 +1,124 @@
-# 🏥 medicine-price-prediction-system
+# 🏥 Medicine Price Prediction System
+
 A machine learning system to predict medicine prices and recommend cheaper alternatives based on historical data and drug characteristics.
 
-📌 Project Overview
+---
 
-This project aims to build a machine learning–based system that predicts future medicine prices and recommends cheaper alternatives when price increases are expected.
+## 📌 Project Overview
+
+This project aims to build a machine learning–based system that predicts future medicine prices and recommends cheaper alternatives when price increases are expected.  
 The system is designed to help patients—especially those with chronic illnesses—plan their purchases and reduce financial burden.
 
 The project combines:
+- Data collection and preprocessing  
+- Machine learning prediction  
+- Backend API  
+- User interface (dashboard)  
+- Visualization and analytics  
+- Testing and documentation  
 
-Data collection and preprocessing
+---
 
-Machine learning prediction
+## 🎯 Problem Statement
 
-Backend API
-
-User interface (dashboard)
-
-Visualization and analytics
-
-Testing and documentation
-
-🎯 Problem Statement
-
-Medicine prices fluctuate due to market conditions, supply issues, and economic factors.
+Medicine prices fluctuate due to market conditions, supply issues, and economic factors.  
 Patients often discover price increases only at the time of purchase, making it difficult to plan or choose alternatives.
 
 There is a need for:
+- Predictive price insight  
+- Cheaper alternative recommendations  
+- Clear visualization of trends  
 
-Predictive price insight
+---
 
-Cheaper alternative recommendations
-
-Clear visualization of trends
-
-💡 Proposed Solution
+## 💡 Proposed Solution
 
 The system:
+- Predicts medicine prices using historical price data  
+- Detects potential price spikes  
+- Recommends cheaper alternatives with similar category and active ingredient  
+- Displays trends and alerts through a dashboard  
 
-Predicts medicine prices using historical price data
+---
 
-Detects potential price spikes
-
-Recommends cheaper alternatives with similar category and active ingredient
-
-Displays trends and alerts through a dashboard
-
-📊 Data
+## 📊 Data
 
 The dataset may include:
+- Medicine name  
+- Category (e.g., antibiotic, chronic)  
+- Active ingredient  
+- Historical price  
+- Alternative medicines  
 
-Medicine name
+**Data sources:**
+- Public medicine price datasets  
+- Pharmacy websites (if allowed)  
+- Manual collection (if needed)  
 
-Category (e.g., antibiotic, chronic)
+---
 
-Active ingredient
+## 🤖 Machine Learning
 
-Historical price
+**Possible models:**
+- Linear Regression  
+- Random Forest  
+- XGBoost  
 
-Alternative medicines
+**Tasks:**
+- Data cleaning  
+- Feature engineering  
+- Model training  
+- Evaluation (MAE, RMSE, R²)  
 
-Data sources:
+**Outputs:**
+- Predicted future price  
+- Price spike indicator  
+- Alternative medicine suggestions  
 
-Public medicine price datasets
+---
 
-Pharmacy websites (if allowed)
-
-Manual collection (if needed)
-
-🤖 Machine Learning
-
-Possible models:
-
-Linear Regression
-
-Random Forest
-
-XGBoost
-
-Tasks:
-
-Data cleaning
-
-Feature engineering
-
-Model training
-
-Evaluation (MAE, RMSE, R²)
-
-Outputs:
-
-Predicted future price
-
-Price spike indicator
-
-Alternative medicine suggestions
-
-🧱 System Architecture
+## 🧱 System Architecture
 User → Frontend Dashboard → Backend API → ML Model → Database
-👥 Team Roles
-Role	Responsibilities
-Data Engineer / ML Prep	Data collection, cleaning, normalization, feature preparation
-ML / Prediction Engineer	Model training, validation, prediction logic
-Backend Developer / API	API development, database integration, security
-Frontend Developer / UI	User interface, interaction, responsiveness
-Visualization / Analytics	Charts, trends, insights, KPIs
-Documentation / Testing / QA	Reports, testing, GitHub management, presentations
-⚙️ Technology Stack
 
-ML & Data:
 
-Python
+---
 
-Pandas, NumPy
+## 👥 Team Roles
 
-Scikit-learn
+| Role                        | Responsibilities |
+|-----------------------------|------------------|
+| Data Engineer / ML Prep     | Data collection, cleaning, normalization, feature preparation |
+| ML / Prediction Engineer    | Model training, validation, prediction logic |
+| Backend Developer / API     | API development, database integration, security |
+| Frontend Developer / UI     | User interface, interaction, responsiveness |
+| Visualization / Analytics   | Charts, trends, insights, KPIs |
+| Documentation / Testing / QA| Reports, testing, GitHub management, presentations |
 
-Backend:
+---
 
-FastAPI or Flask
+## ⚙️ Technology Stack
 
-Frontend:
+**ML & Data:**  
+- Python  
+- Pandas, NumPy  
+- Scikit-learn  
 
-Streamlit or HTML + JS
+**Backend:**  
+- FastAPI or Flask  
 
-Database:
+**Frontend:**  
+- Streamlit or HTML + JS  
 
-SQLite / PostgreSQL
+**Database:**  
+- SQLite / PostgreSQL  
 
-Version Control:
+**Version Control:**  
+- Git & GitHub  
 
-Git & GitHub
+---
 
-📁 Project Structure (Planned)
+## 📁 Project Structure (Planned)
+
 medicine-price-prediction-system/
 │
 ├── data/
@@ -153,48 +140,47 @@ medicine-price-prediction-system/
 │   └── reports/
 │
 └── README.md
-🧪 Testing
 
-Functional testing (API, UI)
+---
 
-ML validation (accuracy, error metrics)
+## 🧪 Testing
 
-Edge case testing (rare medicines, missing data)
+- Functional testing (API, UI)  
+- ML validation (accuracy, error metrics)  
+- Edge case testing (rare medicines, missing data)  
 
-📈 KPIs
+---
 
-Prediction accuracy
+## 📈 KPIs
 
-System response time
+- Prediction accuracy  
+- System response time  
+- Bug count  
+- Data coverage  
 
-Bug count
+---
 
-Data coverage
+## 🚀 Deployment
 
-🚀 Deployment
+- Local deployment (Flask/FastAPI + Streamlit)  
+- Optional cloud deployment  
 
-Local deployment (Flask/FastAPI + Streamlit)
+---
 
-Optional cloud deployment
-
-📄 Documentation
+## 📄 Documentation
 
 The project includes:
+- Technical documentation  
+- User manual  
+- UML diagrams  
+- ER diagrams  
+- DFDs  
+- Final report  
+- Presentation slides  
 
-Technical documentation
+---
 
-User manual
-
-UML diagrams
-
-ER diagrams
-
-DFDs
-
-Final report
-
-Presentation slides
-
-📜 License
+## 📜 License
 
 MIT License
+
