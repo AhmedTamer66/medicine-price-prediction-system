@@ -3,8 +3,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.core.database import create_tables
-from app.routers import drug_router
-
+from app.routers import (
+    drug_router,
+    prediction_router,
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,7 +22,8 @@ app = FastAPI(
 )
 
 
-app.include_router(drug_router)
+app.include_router(drug_router.router)
+app.include_router(prediction_router.router)
 
 
 @app.get("/")
@@ -29,3 +32,4 @@ async def root():
         "message": "Drug Price History API",
         "docs": "/docs",
     }
+

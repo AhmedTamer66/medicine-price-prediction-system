@@ -4,7 +4,6 @@ from app.repositories import DrugRepository
 from app.repositories import HistoryRepository
 from app.schemas import DrugSearchParams
 from app.schemas import ExternalApiResponse
-
 from .external_api_service import ExternalApiService
 
 
