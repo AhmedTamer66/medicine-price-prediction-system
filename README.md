@@ -121,26 +121,42 @@ User → Frontend Dashboard → Backend API → ML Model → Database
 
 ```text
 medicine-price-prediction-system/
-│
-├── data/
-│   ├── raw/          # Unprocessed datasets
-│   └── processed/    # Cleaned and prepared datasets
-│
-├── ml/
-│   ├── train.py      # Training script for ML models
-│   └── model.pkl     # Saved trained model
-│
+
 ├── backend/
-│   └── app.py        # Backend API (Flask/FastAPI)
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   └── database.py
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   ├── routers/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── main.py
+│   └── requirements.txt
 │
 ├── frontend/
-│   └── app.py        # Frontend dashboard (Streamlit/HTML+JS)
+│   └── app.py
+│
+├── ml/
+│   ├── preprocessing.py
+│   ├── trainer.py
+│   ├── predictor.py
+│   ├── model_manager.py
+│   ├── train_models.py
+│   └── generate_fake_history.py
+│
+├── data/
+│   ├── raw/
+│   └── processed/
 │
 ├── docs/
-│   ├── diagrams/     # UML, ER, DFD diagrams
-│   └── reports/      # Documentation and reports
+│   ├── diagrams/
+│   └── reports/
 │
-└── README.md         # Project documentation
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 ---
 
