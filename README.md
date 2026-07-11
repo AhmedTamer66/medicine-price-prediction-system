@@ -1,123 +1,244 @@
-# 🏥 Medicine Price Prediction System
+# 🏥 Medicine Price Prediction & AI Drug Assistant
 
-A machine learning system to predict medicine prices and recommend cheaper alternatives based on historical data and drug characteristics.
-
----
-
-## 📌 Project Overview
-
-This project aims to build a machine learning–based system that predicts future medicine prices and recommends cheaper alternatives when price increases are expected.  
-The system is designed to help patients—especially those with chronic illnesses—plan their purchases and reduce financial burden.
-
-The project combines:
-- Data collection and preprocessing  
-- Machine learning prediction  
-- Backend API  
-- User interface (dashboard)  
-- Visualization and analytics  
-- Testing and documentation  
+A healthcare decision support system that predicts future medicine prices using Facebook Prophet and provides an AI-powered pharmaceutical assistant using Retrieval-Augmented Generation (RAG) with the Qwen 2.5 language model.
 
 ---
 
-## 🎯 Problem Statement
+# 📌 Project Overview
 
-Medicine prices fluctuate due to market conditions, supply issues, and economic factors.  
-Patients often discover price increases only at the time of purchase, making it difficult to plan or choose alternatives.
+The Medicine Price Prediction & AI Drug Assistant is designed to help patients, pharmacists, and healthcare professionals access medicine information, monitor historical price trends, forecast future prices, and receive AI-assisted answers to medicine and symptom-related questions.
 
-There is a need for:
-- Predictive price insight  
-- Cheaper alternative recommendations  
-- Clear visualization of trends  
+The system integrates:
 
----
-
-## 💡 Proposed Solution
-
-The system:
-- Predicts medicine prices using historical price data  
-- Detects potential price spikes  
-- Recommends cheaper alternatives with similar category and active ingredient  
-- Displays trends and alerts through a dashboard  
+- Medicine search and filtering
+- Historical price tracking
+- Time-series price forecasting
+- AI-powered pharmaceutical assistant
+- External drug API integration
+- Local SQLite caching
+- Interactive Streamlit interface
 
 ---
 
-## 📊 Data
+# 🎯 Problem Statement
 
-The dataset may include:
-- Medicine name  
-- Category (e.g., antibiotic, chronic)  
-- Active ingredient  
-- Historical price  
-- Alternative medicines  
+Medicine prices frequently change due to inflation, supply chain disruptions, market demand, and governmental pricing policies. Patients often lack visibility into future price trends, making budgeting difficult.
 
-**Data sources:**
-- Public medicine price datasets  
-- Pharmacy websites (if allowed)  
-- Manual collection (if needed)  
+In addition, many users need quick and reliable pharmaceutical information without relying on unverified internet sources.
+
+Traditional chatbots often generate inaccurate medical information because they depend solely on pre-trained knowledge.
 
 ---
 
-## 🤖 Machine Learning
+# 💡 Proposed Solution
 
-**Possible models:**
-- Linear Regression  
-- Random Forest  
-- XGBoost  
+The proposed system combines traditional software engineering with artificial intelligence.
 
-**Tasks:**
-- Data cleaning  
-- Feature engineering  
-- Model training  
-- Evaluation (MAE, RMSE, R²)  
+The system enables users to:
 
-**Outputs:**
-- Predicted future price  
-- Price spike indicator  
-- Alternative medicine suggestions  
+- Search medicines using multiple filters
+- View complete medicine information
+- Display historical price changes
+- Predict future prices using Prophet forecasting
+- Ask medicine and symptom-related questions through an AI chatbot
+- Retrieve answers grounded in a custom pharmaceutical knowledge base using Retrieval-Augmented Generation (RAG)
 
 ---
 
-## 🧱 System Architecture
-User → Frontend Dashboard → Backend API → ML Model → Database
+# ⭐ Main Features
 
-
----
-
-## 👥 Team Roles
-
-| Role                        | Responsibilities |
-|-----------------------------|------------------|
-| Data Engineer / ML Prep     | Data collection, cleaning, normalization, feature preparation |
-| ML / Prediction Engineer    | Model training, validation, prediction logic |
-| Backend Developer / API     | API development, database integration, security |
-| Frontend Developer / UI     | User interface, interaction, responsiveness |
-| Visualization / Analytics   | Charts, trends, insights, KPIs |
-| Documentation / Testing / QA| Reports, testing, GitHub management, presentations |
+- 🔍 Medicine Search
+- 💊 Drug Details
+- 📈 Historical Price Visualization
+- 🔮 Future Price Prediction
+- 🤖 AI Drug Assistant
+- 📚 Retrieval-Augmented Generation (RAG)
+- 💾 SQLite Local Database
+- 🌐 External Drug API Integration
+- ⚡ FastAPI REST API
+- 🖥 Interactive Streamlit Interface
 
 ---
 
-## ⚙️ Technology Stack
+# 📊 Dataset
 
-**ML & Data:**  
-- Python  
-- Pandas, NumPy  
-- Scikit-learn  
+The system stores medicine information including:
 
-**Backend:**  
-- FastAPI or Flask  
+- Commercial Name
+- Scientific Name
+- Manufacturer
+- Drug Class
+- Route of Administration
+- Current Price
+- Historical Prices
+- Price Recording Date
 
-**Frontend:**  
-- Streamlit or HTML + JS  
-
-**Database:**  
-- SQLite / PostgreSQL  
-
-**Version Control:**  
-- Git & GitHub  
+Historical price records are used for time-series forecasting.
 
 ---
 
-## 📁 Project Structure
+# 🤖 Artificial Intelligence
+
+## 1. Price Prediction
+
+The forecasting module uses **Facebook Prophet**, a time-series forecasting model developed by Meta.
+
+Features:
+
+- Historical price analysis
+- Future price forecasting
+- Confidence intervals
+- Individual forecasting model per medicine
+
+Outputs:
+
+- Predicted prices
+- Confidence bounds
+- Forecast charts
+
+---
+
+## 2. AI Pharmaceutical Assistant
+
+The chatbot is built using:
+
+- Qwen 2.5 3B-Instruct
+- Retrieval-Augmented Generation (RAG)
+- FAISS Vector Database
+- Sentence Transformers
+- Custom pharmaceutical knowledge base
+
+Pipeline:
+
+User Question
+
+↓
+
+Embedding Generation
+
+↓
+
+FAISS Similarity Search
+
+↓
+
+Top-3 Relevant Knowledge Chunks
+
+↓
+
+Qwen 2.5 LLM
+
+↓
+
+Grounded AI Response
+
+The chatbot answers only using retrieved information from the knowledge base, reducing hallucinations and improving answer reliability.
+
+---
+
+# 🏗 System Architecture
+
+```
+                +----------------+
+                |    Streamlit   |
+                |    Frontend    |
+                +--------+-------+
+                         |
+                         |
+                    HTTP Requests
+                         |
+                         v
+                +----------------+
+                |    FastAPI     |
+                |    Backend     |
+                +--------+-------+
+                         |
+          +--------------+---------------+
+          |                              |
+          |                              |
+          v                              v
+     SQLite Database              External Drug API
+          |
+          |
+          v
+    Prophet Prediction
+
+----------------------------------------------
+
+User Question
+
+↓
+
+Streamlit
+
+↓
+
+LLM API
+
+↓
+
+FAISS Vector Search
+
+↓
+
+Knowledge Base
+
+↓
+
+Qwen 2.5
+
+↓
+
+Answer
+```
+
+---
+
+# ⚙ Technology Stack
+
+## Backend
+
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- HTTPX
+
+## Frontend
+
+- Streamlit
+- Plotly
+- Pandas
+
+## Database
+
+- SQLite
+
+## Machine Learning
+
+- Prophet
+- Pandas
+- NumPy
+
+## Artificial Intelligence
+
+- Qwen 2.5 3B-Instruct
+- Sentence Transformers
+- FAISS
+- HuggingFace Transformers
+
+## Deployment
+
+- Uvicorn
+- Cloudflare Tunnel
+
+## Version Control
+
+- Git
+- GitHub
+
+---
+
+# 📁 Project Structure
 
 ```text
 medicine-price-prediction-system/
@@ -125,8 +246,6 @@ medicine-price-prediction-system/
 ├── backend/
 │   ├── app/
 │   │   ├── core/
-│   │   │   ├── config.py
-│   │   │   └── database.py
 │   │   ├── models/
 │   │   ├── repositories/
 │   │   ├── routers/
@@ -158,46 +277,137 @@ medicine-price-prediction-system/
 ├── LICENSE
 └── .gitignore
 ```
----
-
-## 🧪 Testing
-
-- Functional testing (API, UI)  
-- ML validation (accuracy, error metrics)  
-- Edge case testing (rare medicines, missing data)  
 
 ---
 
-## 📈 KPIs
+# 🚀 Installation
 
-- Prediction accuracy  
-- System response time  
-- Bug count  
-- Data coverage  
+## Clone Repository
 
----
-
-## 🚀 Deployment
-
-- Local deployment (Flask/FastAPI + Streamlit)  
-- Optional cloud deployment  
+```bash
+git clone https://github.com/<username>/medicine-price-prediction-system.git
+```
 
 ---
 
-## 📄 Documentation
+## Install Backend Dependencies
 
-The project includes:
-- Technical documentation  
-- User manual  
-- UML diagrams  
-- ER diagrams  
-- DFDs  
-- Final report  
-- Presentation slides  
+```bash
+cd backend
+pip install -r requirements.txt
+```
 
 ---
 
-## 📜 License
+## Install Frontend Dependencies
 
-MIT License
+```bash
+pip install streamlit
+```
 
+---
+
+## Run FastAPI
+
+```bash
+uvicorn app.main:app --reload --port 1000
+```
+
+---
+
+## Run Streamlit
+
+```bash
+streamlit run frontend/app.py
+```
+
+---
+
+## Run the Chatbot Server
+
+```bash
+python chatbot_server.py
+```
+
+---
+
+# 📚 REST API
+
+| Endpoint | Description |
+|-----------|-------------|
+| GET /drugs | Search medicines |
+| GET /drugs/{id} | Drug details |
+| GET /predictions/{id} | Price prediction |
+| POST /chat | AI Assistant |
+
+Swagger documentation:
+
+```
+http://localhost:1000/docs
+```
+
+ReDoc:
+
+```
+http://localhost:1000/redoc
+```
+
+---
+
+# 🧪 Testing
+
+The project was tested using:
+
+- Backend API testing
+- Manual UI testing
+- Price prediction validation
+- Chatbot response validation
+- Error handling verification
+
+---
+
+# 📈 Future Improvements
+
+- User authentication
+- PostgreSQL support
+- Docker deployment
+- Continuous Integration (CI/CD)
+- Larger pharmaceutical knowledge base
+- Multi-language chatbot
+- Real-time medicine price synchronization
+
+---
+
+# 👥 Team Responsibilities
+
+| Role | Responsibilities |
+|------|------------------|
+| Machine Learning | Data preprocessing, Prophet forecasting |
+| AI Engineer | RAG pipeline, Qwen chatbot |
+| Backend Developer | FastAPI services, database, API integration |
+| Frontend Developer | Streamlit interface |
+| Documentation & QA | UML, testing, reports, user manual |
+
+---
+
+# 📄 Documentation
+
+The project documentation includes:
+
+- System Analysis & Design
+- Software Architecture
+- ER Diagram
+- DFD
+- UML Diagrams
+- Database Design
+- API Documentation
+- Testing Report
+- User Manual
+- Technical Documentation
+- Final Presentation
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
